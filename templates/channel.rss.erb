@@ -24,9 +24,7 @@
       <itunes:email><%= h(owner[:email]) %></itunes:email>
     </itunes:owner>
     <% end %>
-    <% unless image_url.blank? %>
-    <itunes:image href="<%= image_url %>"/>
-    <% end %>
+    <itunes:image href="<%= h(url) %>jpg"/>
   <% categories.each{|category| %>
     <% if category.respond_to?(:each_line) %>
     <itunes:category text="<%= h(category) %>"/>
