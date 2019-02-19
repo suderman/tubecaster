@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="<%= h(language) %>">
+<head>
+	<meta charset="utf-8"/>
+	<title><%= h(title) %></title>
+	<meta name="generator" content="Dropcaster <%= Dropcaster::VERSION%>"/>
+  <% unless copyright.blank? %>
+	<meta name="copyright" content="<%= h(copyright) %>"/>
+  <% end %>
+  <link rel="canonical" href="<%= h(url) %>"/>
+  <link rel="alternate" type="application/rss+xml" title="<%= h(title) %> Podcast Feed" href="<%= h(url) %>rss">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nes.css/1.0.0/css/nes.min.css">
+  <style>
+    body { margin: 1em; }
+    .container { max-width: 600px; margin: 0 auto; }
+    h1 { text-align: center; }
+    h2 { text-align: center; margin: 1em; }
+    img.main { max-width: 200px; margin: 1em auto; display: block; clear: both; border: 5px solid red; border-radius: 10px; }
+  </style>
+</head>
+
+<body id="home">
+  <div class="container">
+
+    <h1><%= h(title) %></h1>
+    <% unless subtitle.blank? %>
+    <h2><%= h(subtitle) %></h2>
+    <% end %>
+    
+    <img class="main" src="/jpg">
+    <p><%= h(description) %></p>
+
+    <h2>Add URL</h2>
+    <form>
+    <input type="text" name="url">
+    </form>
+
+    <h2>Episodes</h2>
+    <ol>
+    <% items.each{|item| %>
+      <li class="item" id="<%= h(item.uuid) %>">
+        <h3><%= h(item.tag.title || item.file_path.to_s) %></h3>
+        <p>
+          Download: <a href="<%= item.url %>">MP3</a> (<%= humanize_time(item.duration.to_i) %>, <%= humanize_size(item.file_size) %>)
+          <br>
+          Published <%= h(item.pub_date.to_formatted_s(:rfc822)) %>
+        </p>
+      </li>
+    <% } %>
+    </ol>
+
+  </div>
+</body>
+</html>

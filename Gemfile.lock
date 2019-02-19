@@ -1,0 +1,54 @@
+GIT
+  remote: git://github.com/nerab/dropcaster.git
+  revision: d7b44ffec89f11df279b718dcbd998f4e80682fb
+  branch: master
+  specs:
+    dropcaster (1.0.0)
+      activesupport
+      bundler
+      nokogiri (>= 1.8.2, < 1.11.0)
+      null-logger
+      ruby-mp3info
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (5.2.2)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+    concurrent-ruby (1.1.4)
+    dotenv (2.6.0)
+    i18n (1.5.3)
+      concurrent-ruby (~> 1.0)
+    mini_portile2 (2.4.0)
+    minitest (5.11.3)
+    mustermann (1.0.3)
+    nokogiri (1.10.1)
+      mini_portile2 (~> 2.4.0)
+    null-logger (0.1.5)
+    rack (2.0.6)
+    rack-protection (2.0.5)
+      rack
+    ruby-mp3info (0.8.10)
+    sinatra (2.0.5)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.5)
+      tilt (~> 2.0)
+    thread_safe (0.3.6)
+    tilt (2.0.9)
+    tzinfo (1.2.5)
+      thread_safe (~> 0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  dotenv
+  dropcaster!
+  sinatra
+
+BUNDLED WITH
+   2.0.1
